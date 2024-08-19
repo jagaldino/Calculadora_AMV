@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Notas</h1>
+        <p>Calculadora feita em base ao plano de curso do professor Léo Gouveia, ela verifica as suas notas, faz o cálculo e mostra qual será a sua nota da terceira unidade</p>
+        <div class="mb-3">
+            <label for="notaU1" class="form-label">Nota de U1:</label>
+            <input type="number" class="form-control" id="notaU1">
+        </div>
+        <div class="mb-3">
+            <label for="notaU2" class="form-label">Nota de U2:</label>
+            <input type="number" class="form-control" id="notaU2">
+        </div>
+        <div id="atividades"></div>
+        <button onclick="adicionarAtividade()" class="btn btn-primary">Adicionar Atividade</button>
+        <button onclick="calcularNota()" class="btn btn-success">Calcular Nota</button>
+        <div id="resultado"></div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <footer class="text-center py-3">
+        Criado por João Arthur<br>Aluno de Bacharelado de Ciência e Tecnologia
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
