@@ -33,18 +33,21 @@ function calcularNota() {
     return;
   }
 
-  // Calcula a média das atividades
-  let somaAtividades = 0;
-  atividades.forEach((atividade) => {
-    const nota = parseFloat(atividade.value);
-    if (!isNaN(nota)) {
-      somaAtividades += nota;
-    } else {
-      alert("Por favor, preencha todas as notas com números válidos.");
-      return;
-    }
-  });
-  const mediaAtividades = somaAtividades / atividades.length;
+  // Calcula a soma das atividades e descarta a menor nota
+  let notasAtividades = atividades.map((atividade) =>
+    parseFloat(atividade.value)
+  );
+
+  if (notasAtividades.some(isNaN)) {
+    alert("Por favor, preencha todas as notas com números válidos.");
+    return;
+  }
+
+  const menorNota = Math.min(...notasAtividades);
+  const somaAtividades =
+    notasAtividades.reduce((acc, nota) => acc + nota, 0) - menorNota;
+
+  const mediaAtividades = somaAtividades / (atividades.length - 1);
 
   // Calcula U3 e a nota final
   const U3 = (2 * mediaAtividades + notaU1 + notaU2) / 4;
